@@ -4,7 +4,16 @@ import Image from "next/image";
 import styles from "../styles/Layout.module.css";
 import utilsStyles from "../styles/utils.module.css";
 
-export default function Layout({ children, title, description, home, name }) {
+const defaultTitle = "Next.js | sitio web";
+const defaultDescription = "Descripcion del sitio web";
+const defaultName = "Default name";
+
+export default function Layout({ 
+    children, 
+    title = defaultTitle, 
+    description = defaultDescription, 
+    home = defaultName, 
+    name = defaultName }) {
     return (
         <div className={styles.container}>
             <Head>
@@ -74,9 +83,3 @@ export default function Layout({ children, title, description, home, name }) {
         </div>
     );
 }
-
-Layout.defaultProps = {
-    title: "Next.js | sitio web",
-    description: "Descripcion del sitio web",
-    name: "Default name",
-};
